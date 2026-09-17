@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Panel</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <!-- ADMIN HEADER -->
+    <header class="admin-header">
+
+        <div class="header-left">
+            <div class="admin-logo">OP</div>
+
+            <div>
+                <h1>Admin Panel</h1>
+                <p>Outpass Management System</p>
+            </div>
+        </div>
+
+        <div class="header-right">
+
+            <div class="admin-user">
+                <div class="admin-avatar">A</div>
+
+                <div>
+                    <strong>Administrator</strong>
+                    <span>System Admin</span>
+                </div>
+            </div>
+
+            <button class="logout-btn" onclick="logout()">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+
+        <!-- PAGE TITLE -->
+        <section class="page-heading">
+
+            <div>
+                <h2>Request Management</h2>
+
+                <p>
+                    Review and manage student outpass requests.
+                </p>
+            </div>
+
+            <div class="live-status">
+                <span></span>
+                System Active
+            </div>
+
+        </section>
+
+
+        <!-- STATISTICS -->
+        <section class="admin-stats">
+
+            <div class="stat-card total">
+
+                <div class="stat-icon">
+                    📋
+                </div>
+
+                <div class="stat-info">
+                    <span>Total Requests</span>
+                    <strong id="totalRequests">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card pending">
+
+                <div class="stat-icon">
+                    ⏳
+                </div>
+
+                <div class="stat-info">
+                    <span>Pending</span>
+                    <strong id="pendingRequests">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card approved">
+
+                <div class="stat-icon">
+                    ✓
+                </div>
+
+                <div class="stat-info">
+                    <span>Approved</span>
+                    <strong id="approvedRequests">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card rejected">
+
+                <div class="stat-icon">
+                    ✕
+                </div>
+
+                <div class="stat-info">
+                    <span>Rejected</span>
+                    <strong id="rejectedRequests">0</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- REQUEST MANAGEMENT -->
+        <section class="request-panel">
+
+            <!-- PANEL HEADER -->
+            <div class="panel-header">
+
+                <div>
+                    <h3>All Outpass Requests</h3>
+
+                    <p>
+                        View, approve, reject or remove requests.
+                    </p>
+                </div>
+
+                <div class="request-count">
+                    <span id="visibleRequestCount">0</span> Requests
+                </div>
+
+            </div>
+
+
+            <!-- SEARCH / FILTER -->
+            <div class="request-controls">
+
+                <div class="search-box">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="text"
+                        id="searchRequests"
+                        placeholder="Search by reason or destination..."
+                    >
+
+                </div>
+
+
+                <select id="statusFilter">
+
+                    <option value="All">
+                        All Requests
+                    </option>
+
+                    <option value="Pending">
+                        Pending
+                    </option>
+
+                    <option value="Approved">
+                        Approved
+                    </option>
+
+                    <option value="Rejected">
+                        Rejected
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- REQUEST LIST -->
+            <div id="requestList"></div>
+
+
+            <!-- EMPTY STATE -->
+            <div id="emptyState" class="empty-state">
+
+                <div class="empty-icon">
+                    📭
+                </div>
+
+                <h3>No Requests Found</h3>
+
+                <p>
+                    There are currently no requests matching your search.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="admin-footer">
+
+        <span>
+            Outpass Management System
+        </span>
+
+        <span>
+            Admin Control Panel
+        </span>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+
+    <!-- ADMIN ACCESS PROTECTION -->
+    <script>
+
+        const loggedInUser =
+            sessionStorage.getItem("loggedInUser");
+
+        if (loggedInUser !== "admin") {
+
+            window.location.href = "index.html";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+

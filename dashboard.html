@@ -1,0 +1,424 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="student-dashboard">
+
+        <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+
+        <aside class="dashboard-sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🎓</div>
+
+                <div>
+                    <h2>Outpass</h2>
+                    <span>Management System</span>
+                </div>
+            </div>
+
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-item active">
+                    <span>🏠</span>
+                    Dashboard
+                </a>
+
+                <a href="request.html" class="nav-item">
+                    <span>➕</span>
+                    New Outpass
+                </a>
+
+                <a href="history.html" class="nav-item">
+                    <span>📄</span>
+                    My Requests
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <div class="sidebar-user">
+
+                    <div class="user-avatar">
+                        👤
+                    </div>
+
+                    <div>
+                        <strong id="sidebarUser">Student</strong>
+                        <span>Student Account</span>
+                    </div>
+
+                </div>
+
+                <button class="sidebar-logout" onclick="logout()">
+                    ↪ Logout
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ============================= -->
+        <!-- MAIN CONTENT -->
+        <!-- ============================= -->
+
+        <main class="dashboard-main">
+
+            <!-- Top Header -->
+
+            <header class="dashboard-topbar">
+
+                <div>
+                    <p class="page-label">STUDENT PORTAL</p>
+
+                    <h1>Dashboard</h1>
+                </div>
+
+                <div class="topbar-user">
+
+                    <div class="topbar-avatar">
+                        👤
+                    </div>
+
+                    <div>
+                        <strong id="topbarUser">Student</strong>
+                        <span>Student</span>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- ============================= -->
+            <!-- WELCOME BANNER -->
+            <!-- ============================= -->
+
+            <section class="dashboard-welcome">
+
+                <div class="welcome-content">
+
+                    <span class="welcome-tag">
+                        STUDENT DASHBOARD
+                    </span>
+
+                    <h2 id="welcomeMessage">
+                        Welcome back! 👋
+                    </h2>
+
+                    <p>
+                        Manage your outpass requests, track their status,
+                        and generate your gate OTP from one place.
+                    </p>
+
+                </div>
+
+                <div class="welcome-illustration">
+                    🎓
+                </div>
+
+            </section>
+
+
+            <!-- ============================= -->
+            <!-- STATISTICS -->
+            <!-- ============================= -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Request Overview</h2>
+                        <p>Track your outpass request activity</p>
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-stats">
+
+
+                    <!-- Total -->
+
+                    <div class="dashboard-stat-card">
+
+                        <div class="stat-top">
+
+                            <div class="stat-icon total-icon">
+                                📋
+                            </div>
+
+                            <span class="stat-label">
+                                TOTAL
+                            </span>
+
+                        </div>
+
+                        <h3 id="totalRequests">0</h3>
+
+                        <p>Total Requests</p>
+
+                    </div>
+
+
+                    <!-- Pending -->
+
+                    <div class="dashboard-stat-card">
+
+                        <div class="stat-top">
+
+                            <div class="stat-icon pending-icon">
+                                ⏳
+                            </div>
+
+                            <span class="stat-label">
+                                PENDING
+                            </span>
+
+                        </div>
+
+                        <h3 id="pendingRequests">0</h3>
+
+                        <p>Awaiting Approval</p>
+
+                    </div>
+
+
+                    <!-- Approved -->
+
+                    <div class="dashboard-stat-card">
+
+                        <div class="stat-top">
+
+                            <div class="stat-icon approved-icon">
+                                ✓
+                            </div>
+
+                            <span class="stat-label">
+                                APPROVED
+                            </span>
+
+                        </div>
+
+                        <h3 id="approvedRequests">0</h3>
+
+                        <p>Approved Requests</p>
+
+                    </div>
+
+
+                    <!-- Rejected -->
+
+                    <div class="dashboard-stat-card">
+
+                        <div class="stat-top">
+
+                            <div class="stat-icon rejected-icon">
+                                ×
+                            </div>
+
+                            <span class="stat-label">
+                                REJECTED
+                            </span>
+
+                        </div>
+
+                        <h3 id="rejectedRequests">0</h3>
+
+                        <p>Rejected Requests</p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ============================= -->
+            <!-- QUICK ACTIONS -->
+            <!-- ============================= -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Quick Actions</h2>
+                        <p>What would you like to do?</p>
+                    </div>
+
+                </div>
+
+
+                <div class="quick-actions">
+
+
+                    <!-- New Request -->
+
+                    <button
+                        class="quick-action primary-action"
+                        onclick="window.location.href='request.html'">
+
+                        <div class="action-icon">
+                            ➕
+                        </div>
+
+                        <div class="action-content">
+
+                            <h3>Submit New Outpass</h3>
+
+                            <p>
+                                Create a new outpass request
+                            </p>
+
+                        </div>
+
+                        <span class="action-arrow">
+                            →
+                        </span>
+
+                    </button>
+
+
+                    <!-- History -->
+
+                    <button
+                        class="quick-action secondary-action"
+                        onclick="window.location.href='history.html'">
+
+                        <div class="action-icon">
+                            📄
+                        </div>
+
+                        <div class="action-content">
+
+                            <h3>View My Requests</h3>
+
+                            <p>
+                                Check your previous requests
+                            </p>
+
+                        </div>
+
+                        <span class="action-arrow">
+                            →
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ============================= -->
+            <!-- INFORMATION -->
+            <!-- ============================= -->
+
+            <section class="dashboard-info">
+
+                <div class="info-icon">
+                    ℹ
+                </div>
+
+                <div>
+
+                    <h3>How the outpass system works</h3>
+
+                    <p>
+                        Submit an outpass request with your destination
+                        and travel details. Your request will be reviewed
+                        by the administrator. Once approved, you can
+                        generate an OTP for verification at the gate.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <footer class="dashboard-footer">
+                Outpass Management System • Student Portal
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- Existing JavaScript -->
+
+    <script src="script.js"></script>
+
+
+    <!-- Login Protection -->
+
+    <script>
+
+        const loggedInUser =
+            sessionStorage.getItem("loggedInUser");
+
+        const validStudents = [
+            "student1",
+            "student2",
+            "student3"
+        ];
+
+
+        if (!validStudents.includes(loggedInUser)) {
+
+            window.location.href = "index.html";
+
+        }
+
+
+        // Display logged-in user
+
+        if (loggedInUser) {
+
+            const formattedUser =
+                loggedInUser.charAt(0).toUpperCase() +
+                loggedInUser.slice(1);
+
+            const sidebarUser =
+                document.getElementById("sidebarUser");
+
+            const topbarUser =
+                document.getElementById("topbarUser");
+
+
+            if (sidebarUser) {
+                sidebarUser.textContent = formattedUser;
+            }
+
+
+            if (topbarUser) {
+                topbarUser.textContent = formattedUser;
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+

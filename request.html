@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html>
+
+<head> <title>Submit Outpass</title> <link rel="stylesheet" href="style.css"> </head>
+
+<body>
+
+<div class="request-container">
+
+<!-- Header -->
+
+<div class="request-header">
+
+    <div>
+        <h1>Submit Outpass</h1>
+
+        <p>
+            Request permission to leave the campus
+        </p>
+    </div>
+
+    <button
+        class="back-btn"
+        onclick="window.location.href='dashboard.html'">
+
+        ← Dashboard
+
+    </button>
+
+</div>
+
+
+<!-- Request Form -->
+
+<div class="request-card-main">
+
+    <h2>Outpass Details</h2>
+
+    <p class="form-description">
+        Please provide the details of your outing accurately.
+    </p>
+
+
+    <form id="leaveForm">
+
+
+        <!-- Reason -->
+
+        <div class="form-group">
+
+            <label for="reason">
+                Reason for Outpass
+            </label>
+
+            <input
+                type="text"
+                id="reason"
+                placeholder="Example: Medical appointment"
+                required>
+
+        </div>
+
+
+        <!-- Destination -->
+
+        <div class="form-group">
+
+            <label for="destination">
+                Destination
+            </label>
+
+            <input
+                type="text"
+                id="destination"
+                placeholder="Where are you going?"
+                required>
+
+        </div>
+
+
+        <!-- Departure -->
+
+        <div class="form-section">
+
+            <h3>Departure Details</h3>
+
+            <div class="date-time-grid">
+
+                <div class="form-group">
+
+                    <label for="departureDate">
+                        Departure Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="departureDate"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="departureTime">
+                        Departure Time
+                    </label>
+
+                    <input
+                        type="time"
+                        id="departureTime"
+                        required>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Return -->
+
+        <div class="form-section">
+
+            <h3>Return Details</h3>
+
+            <div class="date-time-grid">
+
+                <div class="form-group">
+
+                    <label for="returnDate">
+                        Return Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="returnDate"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="returnTime">
+                        Return Time
+                    </label>
+
+                    <input
+                        type="time"
+                        id="returnTime"
+                        required>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Submit -->
+
+        <button
+            type="submit"
+            class="submit-outpass-btn">
+
+            Submit Outpass Request
+
+        </button>
+
+    </form>
+
+</div>
+
+
+<!-- Existing Requests -->
+
+<div class="previous-requests">
+
+    <h2>Your Recent Requests</h2>
+
+    <p class="form-description">
+        Track the status of your previously submitted outpasses.
+    </p>
+
+    <div id="requestList"></div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+<!-- Student Page Protection -->
+
+<script>
+    const loggedInUser =
+        sessionStorage.getItem("loggedInUser");
+
+    const validStudents = [
+        "student1",
+        "student2",
+        "student3"
+    ];
+
+    if (!validStudents.includes(loggedInUser)) {
+        window.location.href = "index.html";
+    }
+</script>
+</body> </html>

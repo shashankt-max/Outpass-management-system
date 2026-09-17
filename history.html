@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Request History</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Request History</h1>
+
+    <div id="requestList"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+<script>
+    const loggedInUser =
+        sessionStorage.getItem("loggedInUser");
+
+    const validStudents = [
+        "student1",
+        "student2",
+        "student3"
+    ];
+
+    if (!validStudents.includes(loggedInUser)) {
+        window.location.href = "index.html";
+    }
+</script>
+</body>
+</html>
